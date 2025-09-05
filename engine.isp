@@ -1,0 +1,114 @@
+:rectifyText
+:a textElement :perseusText;
+:a ancientText :getValue textElement 'textContent';
+:a rectifiedText :convertText ancientText;
+:a textParent :getValue textElement 'parentNode';
+:setValue textParent 'innerHTML' rectifiedText
+
+:convertText inputString currentOutput currentIndex
+:a searchIndex 0
+:a stringSize :getValue inputString 'length';
+:a outputHTML ''
+:a currentLine ''
+:i :arentSame currentOutput undefined;
+::a searchIndex currentIndex
+::a outputHTML currentOutput
+::a currentOutput undefined
+:i :firstGreater stringSize searchIndex;
+::a currentCharacter :getValue inputString searchIndex;
+::i :areSame currentCharacter ':';
+:::e :convertText inputString :concatenateStrings outputHTML :convertLine currentLine;; :addNumbers searchIndex 1;;
+::i :areSame currentCharacter ';';
+:::e :convertText inputString :concatenateStrings outputHTML :convertLine currentLine;; :addNumbers searchIndex 1;;
+::i :areSame currentCharacter '.';
+:::e :convertText inputString :concatenateStrings outputHTML :convertLine currentLine;; :addNumbers searchIndex 1;;
+::i :areSame currentCharacter ',';
+:::e :convertText inputString :concatenateStrings outputHTML :convertLine currentLine;; :addNumbers searchIndex 1;;
+::a currentLine :concatenateStrings currentLine :convertLetter currentCharacter;;
+::a searchIndex :addNumbers searchIndex 1;
+:a convertedLine :convertLine currentLine;
+:e :concatenateStrings outputHTML convertedLine;
+
+:convertLine inputString
+:e :concatenateStrings :concatenateStrings '<div>' inputString; '</div>';
+
+:findPerseus currentNode
+:i :areSame currentNode undefined;
+::a currentNode :getValue document 'body';
+:a elementSize :getSize currentNode;
+:a elementChildren :getValue elementChildren 'children';
+:a numberChildren :getValue elementChildren 'length';
+:a searchIndex 0
+:i :firstGreater numberChildren searchIndex;
+::a currentChild :getValue elementChildren searchIndex;
+::a childChild :findPerseus currentChild;
+::a size2 :getSize childChild;
+::i :firstGreater size2 elementSize;
+:::a elementSize size2
+:::a currentNode childChild
+::a searchIndex :addNumbers searchIndex 1;
+:e currentNode
+
+:getSize targetNode
+:a nodeInfo :targetNode.getBoundingClientRect;
+:e :multiplyNumbers :getValue nodeInfo 'bottom'; :getValue nodeInfo 'height';;
+
+:convertLetter inputString
+:i :areSame inputString 'U';
+::e 'V'
+:i :areSame inputString 'J';
+::e 'I'
+:i :areSame inputString 'a';
+::e 'A'
+:i :areSame inputString 'b';
+::e 'B'
+:i :areSame inputString 'c';
+::e 'C'
+:i :areSame inputString 'd';
+::e 'D'
+:i :areSame inputString 'e';
+::e 'E'
+:i :areSame inputString 'f';
+::e 'F'
+:i :areSame inputString 'g';
+::e 'G'
+:i :areSame inputString 'h';
+::e 'H'
+:i :areSame inputString 'i';
+::e 'I'
+:i :areSame inputString 'j';
+::e 'I'
+:i :areSame inputString 'k';
+::e 'K'
+:i :areSame inputString 'l';
+::e 'L'
+:i :areSame inputString 'm';
+::e 'M'
+:i :areSame inputString 'n';
+::e 'N'
+:i :areSame inputString 'o';
+::e 'O'
+:i :areSame inputString 'p';
+::e 'P'
+:i :areSame inputString 'q';
+::e 'Q'
+:i :areSame inputString 'r';
+::e 'R'
+:i :areSame inputString 's';
+::e 'S'
+:i :areSame inputString 't';
+::e 'T'
+:i :areSame inputString 'u'
+::e 'V'
+:i :areSame inputString 'v';
+::e 'V'
+:i :areSame inputString 'w';
+::e 'W'
+:i :areSame inputString 'x';
+::e 'X'
+:i :areSame inputString 'y';
+::e 'Y'
+:i :areSame inputString 'z';
+::e 'Z'
+:e inputString
+
