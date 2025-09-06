@@ -43,7 +43,7 @@ a word_weight
 :i :areSame currentNode undefined;
 ::a currentNode :getValue document 'body';
 :a elementSize :getSize currentNode;
-:a elementChildren :getValue elementChildren 'children';
+:a elementChildren :getValue currentNode 'children';
 :a numberChildren :getValue elementChildren 'length';
 :a searchIndex 0
 :i :firstGreater numberChildren searchIndex;
