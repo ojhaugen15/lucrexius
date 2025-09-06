@@ -1,3 +1,10 @@
+`
+
+a area_weight 
+a word_weight 
+
+ the above need to be found empirically...? `
+
 :rectifyText
 :a textElement :perseusText;
 :a ancientText :getValue textElement 'textContent';
@@ -51,9 +58,25 @@
 
 :getSize targetNode
 :a nodeInfo :targetNode.getBoundingClientRect;
-:e :multiplyNumbers :getValue nodeInfo 'bottom'; :getValue nodeInfo 'height';;
+:a areaValue :multiplyNumbers :getValue nodeInfo 'bottom'; :getValue nodeInfo 'height';;
+:a abstractSize :addNumbers :multiplyNumbers areaValue area_weight; :multiplyNumbers :numberWords targetNode; word_weight;;
+
+:numberWords targetNode
+:a textContent :getValue targetNode 'textContent';
+:a searchIndex 0
+:a contentSize :getValue textContent 'length';
+:a wordCount 0
+:i :firstGreater contentSize searchIndex;
+::a currentCharacter :getValue textContent searchIndex;
+::i :areSame currentCharacter ' ';
+:::a wordCount :addNumbers wordCount 1;
+:::a currentCharacter null
+::a searchIndex :addNumbers searchIndex 1;
+:e wordCount
 
 :convertLetter inputString
+:i :areSame inputString ' ';
+::e ''
 :i :areSame inputString 'U';
 ::e 'V'
 :i :areSame inputString 'J';
