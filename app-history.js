@@ -1,3 +1,11 @@
+`
+for those interested in the 'history' of this app
+(still forthcoming), wrote this up in a couple 
+of minutes to survey the differences between latin 
+and english in terms of the incidence of their 
+shared alphabet...
+`
+
 function countLetters (inputString) {
  letterObject = {}
  searchIndex = 0
