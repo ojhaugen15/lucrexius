@@ -56,6 +56,6 @@ those interested, I will share that 'Isp' will handle "local-scoping"
 simply by doing this automatically for all altered/created variables
 that do not include an underscore character in their name.
 
-And for more of the history of this app, see the previously private repo:
-https://github.com/ojhaugen15/lucretius
+And for more of the history of this app, see the previously private 
+repository: https://github.com/ojhaugen15/lucrexius_deprecated
 `
