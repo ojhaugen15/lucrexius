@@ -1,6 +1,6 @@
 `
 for those interested in the history of this app, 
-wrote this up in a couple of minutes to survey the 
+wrote this function up in a couple of minutes to survey the 
 differences between latin and english in terms of 
 the incidence of their shared alphabet...
 `
@@ -55,4 +55,7 @@ basic and very easy-to-understand necessity of computer programming. For
 those interested, I will share that 'Isp' will handle "local-scoping"
 simply by doing this automatically for all altered/created variables
 that do not include an underscore character in their name.
+
+For more of the history of this app, see the previously private repo:
+https://github.com/ojhaugen15/lucretius
 `
