@@ -7,13 +7,13 @@ shared alphabet...
 `
 
 function countLetters (inputString) {
- letterObject = {}
- searchIndex = 0
- inputSize = inputString.length
- inputString = inputString.toUpperCase()
+ var letterObject = {}
+ var searchIndex = 0
+ var inputSize = inputString.length
+ var inputString = inputString.toUpperCase()
  while (inputSize > searchIndex) {
-  currentCharacter = inputString[searchIndex]
-  currentCount = letterObject[currentCharacter] || 0
+  var currentCharacter = inputString[searchIndex]
+  var currentCount = letterObject[currentCharacter] || 0
   letterObject[currentCharacter] = currentCount + 1
   searchIndex = searchIndex + 1
  }
@@ -26,15 +26,15 @@ that surely is useful in many other contexts and applications...
 `
 
 function findText (parentNode) {
- textContent = parentNode.textContent
- contentSize = textContent.length
- searchIndex = 0
- nodeChildren = parentNode.children
- numberChildren = nodeChildren.length
+ var textContent = parentNode.textContent
+ var contentSize = textContent.length
+ var searchIndex = 0
+ var nodeChildren = parentNode.children
+ var numberChildren = nodeChildren.length
  while (searchIndex < numberChildren) {
-  currentChild = nodeChildren[searchIndex]
-  childContent = currentChild.textContent
-  childSize = childContent.length
+  var currentChild = nodeChildren[searchIndex]
+  var childContent = currentChild.textContent
+  var childSize = childContent.length
   if ((childSize / contentSize) > .5) {
    return findText(currentChild)
   }  
