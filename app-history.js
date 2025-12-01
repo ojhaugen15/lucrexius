@@ -1,9 +1,8 @@
 `
-for those interested in the 'history' of this app
-(still forthcoming), wrote this up in a couple 
-of minutes to survey the differences between latin 
-and english in terms of the incidence of their 
-shared alphabet...
+for those interested in the history of this app, 
+wrote this up in a couple of minutes to survey the 
+differences between latin and english in terms of 
+the incidence of their shared alphabet...
 `
 
 function countLetters (inputString) {
@@ -21,7 +20,7 @@ function countLetters (inputString) {
 }
 
 `
-wrote this original and very key component in about 10 minutes, a function 
+wrote/conceived this original and very key component in about 10 minutes, a function 
 that surely is useful in many other contexts and applications...
 `
 
