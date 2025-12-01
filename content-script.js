@@ -1,13 +1,7 @@
-chrome.runtime.onMessage.addListener(messageReceived)
-
-function messageReceived (request, sender, sendResponse) {
- if (areSame(getValue(request, 'message'), "icon_clicked")) {
-  rectifyText()
- }
-}
-
 latin_threshhold = .01
 find_ratio = .55
+
+rectifyText()
 
 function findText (parentNode) {
  var textContent = getValue(parentNode, 'textContent')
