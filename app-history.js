@@ -50,9 +50,9 @@ of neglecting to instantiate local-scoping with JavaScript! Please do
 not allow this to discourage you that have wandered onto my GitHub page
 from engaging with my original and innovative work. My excuse for this
 blunder - a minor one for my code-writing style - is that I was so bogged 
-down with the intricacies of my new PL 'Isp' that I forgot this very 
-basic and very easy-to-understand necessity of computer programming. For
-those interested, I will share that 'Isp' will handle "local-scoping"
+down with the intricacies of my new PL 'Isp' that I forgot to include this 
+very basic and very easy-to-understand necessity of computer programming. 
+For those interested, I will share that Isp will handle "local-scoping"
 simply by doing this automatically for all altered/created variables
 that do not include an underscore character in their name.
 
