@@ -1,0 +1,26 @@
+{
+ "manifest_version": 3,
+ "name": "lucreXius",
+ "description": "Convert ancient latin manuscript text at Perseus Digital Library, Latin Library, and PHI Latin Texts to its traditional form",
+ "version": "1.0",
+ "action": {
+  "default_title": "lucreXius"
+ },
+ "background": {
+  "service_worker": "background.js"
+ },
+ "permissions": [
+  "activeTab"
+ ],
+ "content_scripts": [
+   {
+     "matches": ["https://scaife.perseus.org/reader/*", "https://www.thelatinlibrary.com/*", "https://latin.packhum.org/*"],
+     "js": ["content-script.js"]
+   }
+ ],
+ "icons": {
+  "16": "logo/logo-16.png",
+  "48": "logo/logo-48.png",
+  "128": "logo/logo-128.png"
+ }
+}
