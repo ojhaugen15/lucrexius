@@ -1,0 +1,248 @@
+<html><head></head><body><script>
+
+body_node = getValue(document, 'body')
+
+input_element = null
+output_element = null
+previous_input = ''
+
+createInput()
+createOutput()
+
+setInterval(function () {
+ var currentInput = getValue(input_element, 'value')
+ console.log('currentInput: ', currentInput)
+ if (areSame(currentInput, '')) {
+  return
+ }
+ if (areSame(previous_input, currentInput)) {
+  return
+ }
+ previous_input = currentInput
+ var convertedText = convertText(currentInput)
+ setValue(output_element, 'value', convertedText)
+}, 1000)
+
+//
+
+function createInput () {
+ input_element = document.createElement('input')
+ body_node.appendChild(inputElement)
+ setValue(inputElement, 'type', 'text') 
+ setValue(inputElement, 'placeholder', 'Paste copied Latin text in this input box.')
+ var inputStyle = getValue(inputElement, 'style')
+ setValue(inputStyle, 'height', '50%')
+ setValue(inputStyle, 'width', '100%')
+}
+
+function createOutput () {
+ output_element = document.createElement('div')
+ body_node.appendChild(outputElement)
+ var outputStyle = getValue(outputElement, 'style')
+ setValue(outputStyle, 'height', '50%')
+ setValue(outputStyle, 'width', '100%')
+ setValue(outputStyle, 'background', 'black')
+ setValue(outputStyle, 'color', 'white')
+}
+
+function convertText (inputString, currentOutput, currentIndex) {
+ var searchIndex = 0
+ var stringSize = getValue(inputString, 'length')
+ var outputHTML = ''
+ var currentLine = ''
+ if (arentSame(currentOutput, undefined)) {
+  var searchIndex = currentIndex
+  var outputHTML = currentOutput
+ }
+ while (firstGreater(stringSize, searchIndex)) {
+  var currentCharacter = getValue(inputString, searchIndex)
+  if (isPunctuation(currentCharacter)) {
+   currentOutput = concatenateStrings(outputHTML, addDividers(currentLine))
+   currentIndex = addNumbers(searchIndex, 1)
+   return convertText(inputString, currentOutput, currentIndex)
+  }
+  if (legalCharacter(currentCharacter)) {
+   currentLine = concatenateStrings(currentLine, convertLetter(currentCharacter))
+  }
+  searchIndex = addNumbers(searchIndex, 1)
+ }
+ outputHTML = concatenateStrings(outputHTML, addDividers(currentLine))
+ return outputHTML
+}
+
+function addDividers (inputString) {
+ return concatenateStrings(concatenateStrings('<div>', inputString), '</div>')
+}
+
+function isPunctuation (currentCharacter) {
+ if (areSame(currentCharacter, ':')) {
+  return true
+ }
+ if (areSame(currentCharacter, ';')) {
+  return true
+ }
+ if (areSame(currentCharacter, '.')) {
+  return true
+ }
+ if (areSame(currentCharacter, ',')) {
+  return true
+ }
+ if (areSame(currentCharacter, '?')) {
+  return true
+ }
+ if (areSame(currentCharacter, '–')) {
+  return true
+ }
+ if (areSame(currentCharacter, '"')) {
+  return true
+ }
+}
+
+function legalCharacter (inputCharacter) {
+ if (areSame(true, isNumber(inputCharacter))) {
+  return false
+ }
+ if (areSame(inputCharacter, ' ')) {
+  return false
+ }
+ if (areSame(inputCharacter, '\n')) {
+  return false
+ }
+ if (areSame(inputCharacter, '[')) {
+  return false
+ }
+ if (areSame(inputCharacter, ']')) {
+  return false
+ }
+ if (areSame(inputCharacter, '&nbsp;')) {
+  return false
+ }
+ var characterCode = inputCharacter.charCodeAt()
+ if (areSame(characterCode, 160)) {
+  return false
+ }
+ return true
+}
+
+function convertLetter (inputString) {
+ if (areSame(inputString, ' ')) {
+  return ''
+ }
+ if (areSame(inputString, 'U')) {
+  return 'V'
+ }
+ if (areSame(inputString, 'J')) {
+  return 'I'
+ }
+ if (areSame(inputString, 'a')) {
+  return 'A'
+ }
+ if (areSame(inputString, 'b')) {
+  return 'B'
+ }
+ if (areSame(inputString, 'c')) {
+  return 'C'
+ }
+ if (areSame(inputString, 'd')) {
+  return 'D'
+ }
+ if (areSame(inputString, 'e')) {
+  return 'E'
+ }
+ if (areSame(inputString, 'f')) {
+  return 'F'
+ }
+ if (areSame(inputString, 'g')) {
+  return 'G'
+ }
+ if (areSame(inputString, 'h')) {
+  return 'H'
+ }
+ if (areSame(inputString, 'i')) {
+  return 'I'
+ }
+ if (areSame(inputString, 'j')) {
+  return 'I'
+ }
+ if (areSame(inputString, 'k')) {
+  return 'K'
+ }
+ if (areSame(inputString, 'l')) {
+  return 'L'
+ }
+ if (areSame(inputString, 'm')) {
+  return 'M'
+ }
+ if (areSame(inputString, 'n')) {
+  return 'N'
+ }
+ if (areSame(inputString, 'o')) {
+  return 'O'
+ }
+ if (areSame(inputString, 'p')) {
+  return 'P'
+ }
+ if (areSame(inputString, 'q')) {
+  return 'Q'
+ }
+ if (areSame(inputString, 'r')) {
+  return 'R'
+ }
+ if (areSame(inputString, 's')) {
+  return 'S'
+ }
+ if (areSame(inputString, 't')) {
+  return 'T'
+ }
+ if (areSame(inputString, 'u')) {
+  return 'V'
+ }
+ if (areSame(inputString, 'v')) {
+  return 'V'
+ }
+ if (areSame(inputString, 'w')) {
+  return 'W'
+ }
+ if (areSame(inputString, 'x')) {
+  return 'X'
+ }
+ if (areSame(inputString, 'y')) {
+  return 'Y'
+ }
+ if (areSame(inputString, 'z')) {
+  return 'Z'
+ }
+ return inputString
+}
+
+//
+
+function firstGreater (number1, number2) {
+ return number1 > number2
+}
+
+function concatenateStrings (string1, string2) {
+ return string1 + string2
+}
+
+function addNumbers (number1, number2) {
+ return  number1 + number2
+}
+
+function arentSame (item1, item2) {
+ return item1 !== item2
+}
+
+function getValue (inputObject, inputKey) {
+ return inputObject[inputKey]
+}
+
+function setValue (inputObject, inputKey, inputValue) {
+ inputObject[inputKey] = inputValue
+}
+
+function areSame (item1, item2) {
+ return item1 === item2
+}
+
+</script></body></html>
