@@ -1,7 +1,5 @@
 <html><head></head><body><script>
-
-alert('testing')
-
+ 
 body_node = getValue(document, 'body')
 
 input_element = null
@@ -28,7 +26,7 @@ setInterval(function () {
 //
 
 function createInput () {
- input_element = document.createElement('input')
+ input_element = document.createElement('textarea')
  body_node.appendChild(input_element)
  setValue(input_element, 'type', 'text') 
  setValue(input_element, 'placeholder', 'Paste copied Latin text in this input box.')
