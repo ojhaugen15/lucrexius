@@ -1,6 +1,4 @@
 <html><head></head><body><script>
-
-alert('testing')
  
 body_node = getValue(document, 'body')
 
@@ -22,6 +20,7 @@ setInterval(function () {
  }
  previous_input = currentInput
  var convertedText = convertText(currentInput)
+ console.log('convertedText: ', convertedText)
  setValue(output_element, 'textContent', convertedText)
 }, 1000)
 
