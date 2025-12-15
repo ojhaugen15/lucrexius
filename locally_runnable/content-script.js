@@ -1,5 +1,7 @@
 latin_threshhold = .01
 find_ratio = .55
+conversion_happened = false
+backup_url = "https://ojhaugen15.github.io/lucrexius"
 
 // Commented out code, just below, needed for Chrome:
 /*
@@ -13,6 +15,8 @@ function messageReceived (request, sender, sendResponse) {
  }
 }
 */
+
+open_confirmation = "You clicked the lucreXius icon. Unfortunately, version 1 of lucreXius was unable to find the latin on this page programmatically. Would you like to open a new tab to convert your latin manually?"
 
 function findText (parentNode) {
  var textContent = getValue(parentNode, 'textContent')
@@ -78,7 +82,20 @@ function biggestProperty (elementChildren, childProperty) {
  return biggestName
 }
 
+function sendHelp () {
+ setTimeout(function () {
+  if (areSame(conversion_happened, false)) {
+   var helpNeeded = confirm(open_confirmation)
+   if (areSame(helpNeeded, true)) {
+    conversion_happened = true
+    open(backup_url)
+   }
+  }
+ }, 3000)
+}
+
 function rectifyText () {
+ sendHelp()
  var textElement = findText(getValue(document, 'body'))
  console.log('textElement: ', textElement)
  if (areSame(textElement, getValue(document, 'body'))) {
@@ -93,6 +110,7 @@ function rectifyText () {
     var currentText = getValue(currentChild, 'textContent')
     if (isLatin(currentText)) {
      var rectifiedText = convertText(currentText)
+     conversion_happened = true
      if (isNumbered(currentChild)) {
       rectifiedText = injectNumber(currentChild, rectifiedText)
      }
@@ -106,6 +124,7 @@ function rectifyText () {
  var ancientText = getValue(textElement, 'textContent')
  if (isLatin(ancientText)) {
   var rectifiedText = convertText(ancientText)
+  conversion_happened = true
   setValue(textElement, 'innerHTML', rectifiedText)
  }
 }
