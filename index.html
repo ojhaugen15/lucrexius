@@ -27,18 +27,18 @@ setInterval(function () {
 
 function createInput () {
  input_element = document.createElement('input')
- body_node.appendChild(inputElement)
- setValue(inputElement, 'type', 'text') 
- setValue(inputElement, 'placeholder', 'Paste copied Latin text in this input box.')
- var inputStyle = getValue(inputElement, 'style')
+ body_node.appendChild(input_element)
+ setValue(input_element, 'type', 'text') 
+ setValue(input_element, 'placeholder', 'Paste copied Latin text in this input box.')
+ var inputStyle = getValue(input_element, 'style')
  setValue(inputStyle, 'height', '50%')
  setValue(inputStyle, 'width', '100%')
 }
 
 function createOutput () {
  output_element = document.createElement('div')
- body_node.appendChild(outputElement)
- var outputStyle = getValue(outputElement, 'style')
+ body_node.appendChild(output_element)
+ var outputStyle = getValue(output_element, 'style')
  setValue(outputStyle, 'height', '50%')
  setValue(outputStyle, 'width', '100%')
  setValue(outputStyle, 'background', 'black')
