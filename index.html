@@ -11,7 +11,6 @@ createOutput()
 
 setInterval(function () {
  var currentInput = getValue(input_element, 'value')
- console.log('currentInput: ', currentInput)
  if (areSame(currentInput, '')) {
   return
  }
@@ -20,8 +19,7 @@ setInterval(function () {
  }
  previous_input = currentInput
  var convertedText = convertText(currentInput)
- console.log('convertedText: ', convertedText)
- setValue(output_element, 'textContent', convertedText)
+ setValue(output_element, 'innerHTML', convertedText)
 }, 1000)
 
 //
@@ -34,16 +32,22 @@ function createInput () {
  var inputStyle = getValue(input_element, 'style')
  setValue(inputStyle, 'height', '50%')
  setValue(inputStyle, 'width', '100%')
+ setValue(inputStyle, 'position', 'fixed')
+ setValue(inputStyle, 'padding', '30px')
 }
 
 function createOutput () {
  output_element = document.createElement('div')
  body_node.appendChild(output_element)
  var outputStyle = getValue(output_element, 'style')
- setValue(outputStyle, 'height', '50%')
+ setValue(outputStyle, 'height', '40%')
  setValue(outputStyle, 'width', '100%')
  setValue(outputStyle, 'background', 'black')
  setValue(outputStyle, 'color', 'white')
+ setValue(outputStyle, 'position', 'fixed')
+ setValue(outputStyle, 'top', '50%')
+ setValue(outputStyle, 'overflow', 'scroll')
+ setValue(outputStyle, 'padding', '30px')
 }
 
 function convertText (inputString, currentOutput, currentIndex) {
