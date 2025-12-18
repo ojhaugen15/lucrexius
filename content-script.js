@@ -1,7 +1,11 @@
 latin_threshhold = .01
 find_ratio = .55
+no_latin = true
 
 rectifyText()
+if (no_latin) {
+ alert('Latin was not found, perhaps mistakenly, on this page. As a backup, you can always copy and paste latin at:      https://ojhaugen.github.io/lucrexius')
+}
 
 function findText (parentNode) {
  var textContent = getValue(parentNode, 'textContent')
@@ -81,6 +85,7 @@ function rectifyText () {
    if (areSame(containerClass, currentClass)) {
     var currentText = getValue(currentChild, 'textContent')
     if (isLatin(currentText)) {
+     no_latin = false
      var rectifiedText = convertText(currentText)
      if (isNumbered(currentChild)) {
       rectifiedText = injectNumber(currentChild, rectifiedText)
@@ -94,6 +99,7 @@ function rectifyText () {
  }
  var ancientText = getValue(textElement, 'textContent')
  if (isLatin(ancientText)) {
+  no_latin = false
   var rectifiedText = convertText(ancientText)
   setValue(textElement, 'innerHTML', rectifiedText)
  }
