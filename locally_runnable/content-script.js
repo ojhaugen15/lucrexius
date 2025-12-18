@@ -10,14 +10,13 @@ function messageReceived (request, sender, sendResponse) {
  if (areSame(getValue(request, 'message'), "icon_clicked")) {
 */
   rectifyText()
+  if (no_latin) {
+   alert('Latin was not found, perhaps mistakenly, on this page. As a backup, you can always copy and paste latin at:      https://ojhaugen.github.io/lucrexius')
+  }
 /*
  }
 }
 */
-
-if (no_latin) {
- alert('Latin was not found, perhaps mistakenly, on this page. As a backup, you can always copy and paste latin at:      https://ojhaugen.github.io/lucrexius')
-}
 
 function findText (parentNode) {
  var textContent = getValue(parentNode, 'textContent')
