@@ -11,7 +11,7 @@ function messageReceived (request, sender, sendResponse) {
 */
   rectifyText()
   if (no_latin) {
-   alert('Latin was not found, perhaps mistakenly, on this page. As a backup, you can always copy and paste latin at:      https://ojhaugen.github.io/lucrexius')
+   alert('Latin was not found, mistakenly or not, on this page. As a backup, you can always copy and paste latin at:      https://ojhaugen.github.io/lucrexius')
   }
 /*
  }
