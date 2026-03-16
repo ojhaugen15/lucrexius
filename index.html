@@ -6,6 +6,7 @@ input_element = null
 output_element = null
 previous_input = ''
 
+createNote()
 createInput()
 createOutput()
 
@@ -23,6 +24,14 @@ setInterval(function () {
 }, 1000)
 
 //
+
+function createNote () {
+ var noteElement = document.createElement('p')
+ body_node.appendChild(noteElement)
+ setValue(noteElement, 'innerText', 'For quick repair/response, report any and all problems with this site and with the supplementary browser-extension to: ojhaugen15@gmail.com')
+ var inputStyle = getValue(noteElement, 'style')
+// setValue(noteElement, 'height', '50%')
+}
 
 function createInput () {
  input_element = document.createElement('textarea')
